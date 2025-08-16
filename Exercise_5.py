@@ -38,22 +38,22 @@ def quickSortIterative(arr, l, h):
     stack = []
 
     # Push initial range onto stack
-    stack.append((low, high))
+    stack.append((l, h))
 
     # Process stack until empty
     while stack:
         # Pop top subarray bounds
-      low, high = stack.pop()
+      l, h = stack.pop()
 
-      if low < high:
+      if l < h:
           # Partition the array
-          partition = partition(arr, low, high)
+          partition = partition(arr, l, h)
 
           # Push left subarray bounds if it has more than 1 element
-          if partition - 1 > low:
-              stack.append((low, partition - 1))
+          if partition - 1 > l:
+              stack.append((l, partition - 1))
 
           # Push right subarray bounds if it has more than 1 element
-          if partition + 1 < high:
-              stack.append((partition + 1, high))
+          if partition + 1 < h:
+              stack.append((partition + 1, h))
 
